@@ -15,8 +15,9 @@
   <router-outlet></router-outlet>
 </main>
 <footer>
-  <a href="#" *ngFor="let language of languages" [ngClass]="{'active' : language.code === langCode}">
-    {{ language.name }}
-  </a>
+  <a 
+    href="#"
+    *ngFor="let language of languages"
+    [ngClass]="{'active' : language.code === langCode}">{{ language.name }}</a>
 </footer>
 

@@ -10,7 +10,11 @@ import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'games', component: GamesComponent },
   { path: 'your-profile', component: UserProfileComponent },
