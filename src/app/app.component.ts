@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title: string;
   user: any;
-  pages: string[];
+  languages: any;
+  langCode: string = 'en'
 
-  constructor() {
+  constructor(private http: Http) {
     this.title = "Game Progression";
-    this.user = {
-      name: "Stephanie Zeng",
-      profileImage: "https://via.placeholder.com/50x50"
-    };
+    this.user = this.http.get('http://localhost:3004/profile')
+      .subscribe(
+        res => this.user = res.json()
+      );
+    this.languages = this.http.get('http://localhost:3004/languages')
+      .subscribe(
+        res => this.languages = res.json()
+      );
   }
 }

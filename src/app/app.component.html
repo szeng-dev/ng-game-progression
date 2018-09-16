@@ -3,8 +3,8 @@
     <a routerLink="/">{{ title }}</a>
   </div>
   <div class="user-profile">
-    <img [src]="user.profileImage" [alt]="user.name">
-    <a routerLink="/your-profile">{{ user.name }}</a>
+    <img [src]="user.image" [alt]="user.firstName">
+    <a routerLink="/your-profile">{{ user.firstName }} {{ user.lastName }}</a>
   </div>
 </header>
 <nav>
@@ -15,7 +15,8 @@
   <router-outlet></router-outlet>
 </main>
 <footer>
-  <a href="#" class="active">English</a>
-  <a href="#">French</a>
+  <a href="#" *ngFor="let language of languages" [ngClass]="{'active' : language.code === langCode}">
+    {{ language.name }}
+  </a>
 </footer>
 
