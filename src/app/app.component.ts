@@ -16,6 +16,5 @@ export class AppComponent {
       name: "Stephanie Zeng",
       profileImage: "https://via.placeholder.com/50x50"
     };
-    this.pages = ['Dashboard', 'Games'];
   }
 }
