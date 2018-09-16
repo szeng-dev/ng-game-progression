@@ -6,14 +6,11 @@
   </div>
 </header>
 <nav>
-  <ul>
-    <li *ngFor="let page of pages">
-      {{ page }}
-    </li>
-  </ul>
+  <a *ngFor="let page of pages" href="#">
+    {{ page }}
+  </a>
 </nav>
 <main>
-  An Emppty Content Board
 </main>
 <footer>
   English | French

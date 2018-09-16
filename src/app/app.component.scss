@@ -12,20 +12,39 @@ $color-lightred: #c99898;
 $color-orange: #b48c3f;
 
 header {
-  max-height: 10rem;
   background-color: $color-darkblue;
   color: $color-text-light;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 2rem;
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 100%;
+      margin-right: 1rem;
+    }
+  }
 }
 
 nav {
   background-color: $color-blue;
   color: $color-text-light;
+  padding: 1rem 2rem;
 
-  ul {
-    display: flex;
+  a {
+    color: $color-text-light;
+    text-decoration: none;
+    margin-right: 1rem;
   }
 }
 
@@ -42,4 +61,7 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
 }
