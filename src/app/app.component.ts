@@ -1,26 +1,48 @@
-import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component, OnInit } from '@angular/core';
+
+import { ApiService } from './services/api.service';
+
+import { Profile } from './models/profile.model';
+import { Language } from './models/language.model';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string;
-  user: any;
-  languages: any;
+  profile: Observable<Profile>;
+  profileName: string;
+  profileImage: string;
+  languages: Language[];
   langCode: string = 'en'
 
-  constructor(private http: Http) {
+  constructor(private apiService: ApiService) {
     this.title = "Game Progression";
-    this.user = this.http.get('http://localhost:3004/profile')
+  }
+
+  ngOnInit() {
+    this.getProfile();
+    this.getLanguages();
+  }
+
+  getProfile() {
+    this.apiService.getProfile()
       .subscribe(
-        res => this.user = res.json()
-      );
-    this.languages = this.http.get('http://localhost:3004/languages')
+        data => {
+          this.profileName = `${data.firstName} ${data.lastName}`;
+          this.profileImage = data.image;
+        }
+    );
+  }
+
+  getLanguages() {
+    this.apiService.getLanguages()
       .subscribe(
-        res => this.languages = res.json()
+        data => this.languages = data
       );
   }
 }

@@ -3,8 +3,8 @@
     <a routerLink="/">{{ title }}</a>
   </div>
   <div class="user-profile">
-    <img [src]="user.image" [alt]="user.firstName">
-    <a routerLink="/your-profile">{{ user.firstName }} {{ user.lastName }}</a>
+    <img [src]="profileImage" [alt]="profileName">
+    <a routerLink="/your-profile">{{ profileName }}</a>
   </div>
 </header>
 <nav>

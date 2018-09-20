@@ -1,12 +1,12 @@
 <h1 class="box">Your Dashboard</h1>
 <section class="box">
   <h2>Time Remaining: 
-    <span>365 Days</span>
+    <span>{{ getNumberofDaysLeft() }} Days</span>
   </h2>
   <div>Number of Unfinished Games: 
-    <span>78</span>
+    <span>{{ getNumberOfUnfinishedGames() }}</span>
   </div>
   <div>Number of Finished Games: 
-    <span>12</span>
+    <span>{{ getNumberOfFinishedGames() }}</span>
   </div>
 </section>

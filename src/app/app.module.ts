@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GamesComponent } from './games/games.component';
-import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+
+import { ApiService } from './services/api.service';
 
 const APP_ROUTES: Routes = [
   {
@@ -18,7 +18,7 @@ const APP_ROUTES: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'games', component: GamesComponent },
   { path: 'your-profile', component: UserProfileComponent },
-  { path: '**', component: HomeComponent }
+  { path: '**', component: DashboardComponent }
 ];
 
 @NgModule({
@@ -26,18 +26,17 @@ const APP_ROUTES: Routes = [
     AppComponent,
     DashboardComponent,
     GamesComponent,
-    HomeComponent,
     UserProfileComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(
       APP_ROUTES,
       // { enableTracing: true}
     )
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
