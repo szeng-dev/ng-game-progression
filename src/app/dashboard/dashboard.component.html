@@ -6,7 +6,19 @@
   <div>Number of Unfinished Games: 
     <span>{{ getNumberOfUnfinishedGames() }}</span>
   </div>
+  <app-progress-bar
+    [progressPortion]="10"
+    [totalPortion]="20"
+    [backgroundColor]="green"
+    [barColor]="lime"
+  ></app-progress-bar>
   <div>Number of Finished Games: 
     <span>{{ getNumberOfFinishedGames() }}</span>
   </div>
+  <app-progress-bar
+    [progressPortion]="15"
+    [totalPortion]="20"
+    [backgroundColor]="red"
+    [barColor]="pink"
+  ></app-progress-bar>
 </section>
