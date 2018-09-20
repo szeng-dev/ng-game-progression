@@ -10,11 +10,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { ApiService } from './services/api.service';
 
 const APP_ROUTES: Routes = [
-  {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full'
-  },
+  { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'games', component: GamesComponent },
   { path: 'your-profile', component: UserProfileComponent },
