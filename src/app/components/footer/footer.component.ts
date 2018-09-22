@@ -8,7 +8,8 @@ import { Language } from '../../types/language.model';
 })
 export class FooterComponent implements OnInit {
 
-  @Input() languages: Language[]
+  @Input() languages: Language[];
+  @Input() langCode: string;
 
   constructor() { }
 
