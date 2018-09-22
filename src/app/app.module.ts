@@ -10,6 +10,8 @@ import { AppComponent } from './components/app/app.component';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { GamesModule } from './modules/games/games.module';
 import { ProfileModule } from './modules/profile/profile.module';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -31,6 +33,8 @@ const APP_ROUTES: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
