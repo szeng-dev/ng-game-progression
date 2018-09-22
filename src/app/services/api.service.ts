@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
-import { Profile } from '../models/profile.model';
-import { Language } from '../models/language.model';
-import { Game } from '../dashboard/dashboard.model';
+import { Profile } from '../types/profile.model';
+import { Language } from '../types/language.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +20,5 @@ export class ApiService {
 
   getLanguages(): Observable<Language[]> {
     return this.http.get<Language[]>(`${this.base_url}/languages`);
-  }
-
-  getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(`${this.base_url}/games`);
   }
 }

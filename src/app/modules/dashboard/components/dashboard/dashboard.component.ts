@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 
-import { Game } from '../dashboard/dashboard.model';
+import { Game } from '../../types/game.model';
 
 @Component({
   selector: 'app-dashboard',

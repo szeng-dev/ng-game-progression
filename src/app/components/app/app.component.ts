@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ApiService } from './services/api.service';
+import { ApiService } from '../../services/api.service';
 
-import { Profile } from './models/profile.model';
-import { Language } from './models/language.model';
+import { Profile } from '../../types/profile.model';
+import { Language } from '../../types/language.model';
 
 import { Observable } from 'rxjs';
 
