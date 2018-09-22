@@ -1,23 +1,12 @@
-<header>
-  <div class="logo">
-    <a routerLink="/">{{ title }}</a>
-  </div>
-  <div class="user-profile">
-    <img [src]="profileImage" [alt]="profileName">
-    <a routerLink="/your-profile">{{ profileName }}</a>
-  </div>
-</header>
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a routerLink="/games" routerLinkActive="active">Games</a>
-</nav>
+<app-header 
+  [profile]="profile$ | async"
+  [title]="title"
+>
+</app-header>
 <main>
   <router-outlet></router-outlet>
 </main>
-<footer>
-  <a 
-    href="#"
-    *ngFor="let language of languages"
-    [ngClass]="{'active' : language.code === langCode}">{{ language.name }}</a>
-</footer>
+<app-footer
+  [languages]="languages$ | async"
+></app-footer>
 

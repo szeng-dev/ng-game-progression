@@ -14,10 +14,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title: string;
-  profile: Observable<Profile>;
-  profileName: string;
-  profileImage: string;
-  languages: Language[];
+  profile$: Observable<Profile>;
+  languages$: Observable<Language[]>;
   langCode: string = 'en'
 
   constructor(private apiService: ApiService) {
@@ -25,24 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getProfile();
-    this.getLanguages();
-  }
-
-  getProfile() {
-    this.apiService.getProfile()
-      .subscribe(
-        data => {
-          this.profileName = `${data.firstName} ${data.lastName}`;
-          this.profileImage = data.image;
-        }
-    );
-  }
-
-  getLanguages() {
-    this.apiService.getLanguages()
-      .subscribe(
-        data => this.languages = data
-      );
+    this.profile$ = this.apiService.getProfile();
+    this.languages$ = this.apiService.getLanguages();
   }
 }
