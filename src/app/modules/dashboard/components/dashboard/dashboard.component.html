@@ -7,10 +7,10 @@
     <span>{{ getNumberOfUnfinishedGames() }}</span>
   </div>
   <app-progress-bar
-    [progressPortion]="10"
-    [totalPortion]="20"
-    [backgroundColor]="green"
-    [barColor]="lime"
+    [progressPortion]="getNumberOfUnfinishedGames()"
+    [totalPortion]="games.length"
+    [backgroundColor]="'#c99898'"
+    [barColor]="'#b43f3f'"
   ></app-progress-bar>
   <div>Number of Finished Games: 
     <span>{{ getNumberOfFinishedGames() }}</span>
@@ -18,7 +18,7 @@
   <app-progress-bar
     [progressPortion]="15"
     [totalPortion]="20"
-    [backgroundColor]="red"
-    [barColor]="pink"
+    [backgroundColor]="'#a8ce87'"
+    [barColor]="'#76b43f'"
   ></app-progress-bar>
 </section>

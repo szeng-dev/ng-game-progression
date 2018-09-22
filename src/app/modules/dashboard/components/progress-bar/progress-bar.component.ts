@@ -12,11 +12,15 @@ export class ProgressBarComponent implements OnInit {
   @Input() totalPortion: number;
   @Input() backgroundColor: string;
   @Input() barColor: string;
+  @Input() hi: number = 4;
 
-  constructor() { }
+  constructor() {
+    this.progressPercentage = Math.floor(this.progressPortion / this.totalPortion * 100) + '%';
+  }
 
   ngOnInit() {
-    this.progressPercentage = Math.floor(this.progressPortion / this.totalPortion * 100) + '%';
+    console.log(this.progressPercentage, this.progressPortion, this.totalPortion);
+    console.log(this.backgroundColor, this.barColor, this.hi);
   }
 
 }

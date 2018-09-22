@@ -10,18 +10,15 @@ import { Game } from '../../types/game.model';
 })
 export class DashboardComponent implements OnInit {
 
-  numberOfFinishedGames: number = 0;
   games: Game[] = [];
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
-    this.getGames();
-  }
-
-  getGames() {
     this.apiService.getGames()
-      .subscribe(data => this.games = data);
+      .subscribe(
+        games => this.games = games
+      );
   }
 
   getNumberOfFinishedGames():number {
