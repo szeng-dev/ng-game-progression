@@ -7,7 +7,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 
 const DASHBOARD_ROUTES: Routes = [
   { 
-    path: '',
+    path: 'dashboard',
     component: DashboardComponent,
     pathMatch: 'full'
   }

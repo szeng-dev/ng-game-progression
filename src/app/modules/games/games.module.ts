@@ -6,7 +6,7 @@ import { GamesComponent } from './components/games/games.component';
 
 const GAMES_ROUTES: Routes = [
   { 
-    path: '',
+    path: 'games',
     component: GamesComponent,
     pathMatch: 'full'
   }
