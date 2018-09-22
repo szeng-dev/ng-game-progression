@@ -25,10 +25,7 @@ const APP_ROUTES: Routes = [
     path: 'your-profile',
     loadChildren: './modules/profile/profile.module#ProfileModule'
   },
-  { 
-    path: '**', 
-    loadChildren: './modules/dashboard/dashboard.module#DashboardModule'
-  }
+  { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({
