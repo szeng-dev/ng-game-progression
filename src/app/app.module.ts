@@ -5,35 +5,43 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from './services/api.service';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { GamesComponent } from './games/games.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { ProgressBarComponent } from './dashboard/progress-bar/progress-bar.component';
+import { AppComponent } from './components/app/app.component';
+
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { GamesModule } from './modules/games/games.module';
+import { ProfileModule } from './modules/profile/profile.module';
 
 const APP_ROUTES: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'games', component: GamesComponent },
-  { path: 'your-profile', component: UserProfileComponent },
-  { path: '**', component: DashboardComponent }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { 
+    path: 'dashboard', 
+    loadChildren: './modules/dashboard/dashboard.module#DashboardModule'
+  },
+  { 
+    path: 'games', 
+    loadChildren: './modules/games/games.module#GamesModule'
+  },
+  { 
+    path: 'your-profile',
+    loadChildren: './modules/profile/profile.module#ProfileModule'
+  },
+  { 
+    path: '**', 
+    loadChildren: './modules/dashboard/dashboard.module#DashboardModule'
+  }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    GamesComponent,
-    UserProfileComponent,
-    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(
-      APP_ROUTES,
-      // { enableTracing: true}
-    )
+    RouterModule.forRoot(APP_ROUTES),
+    DashboardModule,
+    GamesModule,
+    ProfileModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
