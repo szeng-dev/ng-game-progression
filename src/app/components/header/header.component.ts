@@ -12,16 +12,16 @@ export class HeaderComponent implements OnInit {
 
   @Input() title: string;
   @Input() profile: Observable<Profile>;
-  profileImage: string;
-  profileName: string;
+  profileImage: string = "#9dafbd";
+  profileName: string = "#9dafbd";
 
   constructor() { }
 
   ngOnInit() {
     this.profile.subscribe(
-      data => {
-        this.profileImage = data.image;
-        this.profileName = `${data.firstName} ${data.lastName}`;
+      profile => {
+        this.profileImage = profile.image;
+        this.profileName = `${profile.firstName} ${profile.lastName}`;
       }
     );
   }

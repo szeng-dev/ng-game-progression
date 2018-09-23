@@ -22,23 +22,19 @@ export class DashboardComponent implements OnInit {
       .subscribe(games => {
         this.games = games;
         this.totalNumberOfGames = games.length;
-        this.numberOfFinishedGames = this.getNumberOfFinishedGames();
-        this.numberOfUnfinishedGames = this.getNumberOfUnfinishedGames();
+        this.numberOfFinishedGames = this.getNumberOfFinishedGames(this.games);
+        this.numberOfUnfinishedGames = this.totalNumberOfGames - this.numberOfFinishedGames;
       });
   }
 
-  getNumberOfFinishedGames(): number {
-    return this.games.reduce((acc, curr) => {
+  getNumberOfFinishedGames(games: Game[]): number {
+    return games.reduce((acc, curr) => {
       return curr.isComplete ? acc + 1 : acc;
     }, 0);
   }
 
-  getNumberOfUnfinishedGames(): number {
-    return this.games.length - this.getNumberOfFinishedGames();
-  }
-
-  getNumberofDaysLeft(): number {
-    const numberOfHoursLeft = this.games.reduce(
+  getNumberofDaysLeft(games: Game[]): number {
+    const numberOfHoursLeft = games.reduce(
       (acc, curr) => {
         return acc + curr.numberOfHoursToComplete;
       }, 0);

@@ -1,11 +1,11 @@
 <h1 class="block">Your Dashboard</h1>
 <section class="block">
   <h2>Time Remaining: 
-    <span>{{ getNumberofDaysLeft() }} Days</span>
+    <span>{{ getNumberofDaysLeft(games) }} Days</span>
   </h2>
   <section>
     <h4>Number of Unfinished Games: 
-      <span>{{ getNumberOfUnfinishedGames() }}</span>
+      <span>{{ numberOfUnfinishedGames }}</span>
     </h4>
     <app-progress-bar
       [progressPercentage]="getProgressPercentage(numberOfUnfinishedGames, totalNumberOfGames)"
@@ -15,7 +15,7 @@
   </section>
   <section>
     <h4>Number of Finished Games: 
-      <span>{{ getNumberOfFinishedGames() }}</span>
+      <span>{{ numberOfFinishedGames }}</span>
     </h4>
     <app-progress-bar
       [progressPercentage]="getProgressPercentage(numberOfFinishedGames, totalNumberOfGames)"
