@@ -13,14 +13,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title: string;
+  
+  title: string = "Game Progression";
   profile$: Observable<Profile>;
   languages$: Observable<Language[]>;
   langCode: string = 'en'
 
-  constructor(private apiService: ApiService) {
-    this.title = "Game Progression";
-  }
+  constructor(private apiService: ApiService) { }
 
   ngOnInit() {
     this.profile$ = this.apiService.getProfile();
