@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
       (acc, curr) => {
         return acc + curr.numberOfHoursToComplete;
       }, 0);
-    return Math.floor(numberOfHoursLeft / 24);
+    return parseFloat((numberOfHoursLeft / 24).toFixed(1));
   }
 
   getProgressPercentage(complete: number, total: number): string {

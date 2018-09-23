@@ -1,17 +1,7 @@
 .progress-bar {
   width: 100%;
-  background-color: #c99898;
-
-  &--green {
-    background-color: #a8ce87;
-  }
 }
 
 .progress {
-  height: 30px;
-  background-color: #b43f3f;
-
-  &--green {
-    background-color: #76b43f;
-  }
+  height: 2rem;
 }
