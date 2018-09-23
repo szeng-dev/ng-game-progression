@@ -1,24 +1,26 @@
-<h1 class="box">Your Dashboard</h1>
-<section class="box">
+<h1 class="block">Your Dashboard</h1>
+<section class="block">
   <h2>Time Remaining: 
     <span>{{ getNumberofDaysLeft() }} Days</span>
   </h2>
-  <div>Number of Unfinished Games: 
-    <span>{{ getNumberOfUnfinishedGames() }}</span>
-  </div>
-  <app-progress-bar
-    [progressPortion]="getNumberOfUnfinishedGames()"
-    [totalPortion]="games.length"
-    [backgroundColor]="'#c99898'"
-    [barColor]="'#b43f3f'"
-  ></app-progress-bar>
-  <div>Number of Finished Games: 
-    <span>{{ getNumberOfFinishedGames() }}</span>
-  </div>
-  <app-progress-bar
-    [progressPortion]="15"
-    [totalPortion]="20"
-    [backgroundColor]="'#a8ce87'"
-    [barColor]="'#76b43f'"
-  ></app-progress-bar>
+  <section>
+    <h4>Number of Unfinished Games: 
+      <span>{{ getNumberOfUnfinishedGames() }}</span>
+    </h4>
+    <app-progress-bar
+      [progressPercentage]="getProgressPercentage(numberOfUnfinishedGames, totalNumberOfGames)"
+      [backgroundColor]="'#c99898'"
+      [barColor]="'#b43f3f'"
+    ></app-progress-bar>
+  </section>
+  <section>
+    <h4>Number of Finished Games: 
+      <span>{{ getNumberOfFinishedGames() }}</span>
+    </h4>
+    <app-progress-bar
+      [progressPercentage]="getProgressPercentage(numberOfFinishedGames, totalNumberOfGames)"
+      [backgroundColor]="'#a8ce87'"
+      [barColor]="'#76b43f'"
+    ></app-progress-bar>
+  </section>
 </section>
