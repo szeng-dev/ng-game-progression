@@ -6,17 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit {
-  progressPercentage: string;
-
-  @Input() progressPortion: number;
-  @Input() totalPortion: number;
+  @Input() progressPercentage: string = '0%';
   @Input() backgroundColor: string;
   @Input() barColor: string;
 
-  constructor() { }
-
-  ngOnInit() {
-    this.progressPercentage = Math.floor(this.progressPortion / this.totalPortion * 100) + '%';
+  constructor() {
   }
 
+  ngOnInit() { }
 }
