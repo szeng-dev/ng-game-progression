@@ -2,11 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './store/app.reducers';
 
 import { ApiService } from './services/api.service';
 
 import { AppComponent } from './components/app/app.component';
-
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { GamesModule } from './modules/games/games.module';
 import { ProfileModule } from './modules/profile/profile.module';
@@ -40,6 +41,7 @@ const APP_ROUTES: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
+    StoreModule.forRoot(reducer),
     DashboardModule,
     GamesModule,
     ProfileModule
