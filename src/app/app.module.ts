@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './store/app.reducers';
+import { reducers } from './types/app-state/app-state.functions';
 
 import { ApiService } from './services/api.service';
 
@@ -41,7 +41,7 @@ const APP_ROUTES: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot(reducers),
     DashboardModule,
     GamesModule,
     ProfileModule
